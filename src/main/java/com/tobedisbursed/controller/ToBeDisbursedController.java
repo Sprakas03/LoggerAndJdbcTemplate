@@ -31,6 +31,7 @@ public class ToBeDisbursedController {
 	public ResponseEntity<ToBeDisbursedStoredDetails> getStages(@RequestBody ToBeDisbCurrentStageReq req){
 		
 		logger.info(" got req: "+ req.toString());
+		logger.info("to Check ");
 		
 		Map<String, Object> response =  toBeDisbursedService.disbursedStaus(req);
 
