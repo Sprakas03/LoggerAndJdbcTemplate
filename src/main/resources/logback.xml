@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="DEBUG">
+    <Properties>
+        <Property name="LOG_PATTERN">%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg %ex%n</Property>
+        <Property name="LOG_FILE">/home/cdcommsvr.admin/FastTrack/Wildfly-240Master/domain/log/To_be_disb/app.log</Property>
+    </Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${LOG_PATTERN}" />
+        </Console>
+
+        <RollingFile name="File" fileName="${LOG_FILE}"
+            filePattern="/home/cdcommsvr.admin/FastTrack/Wildfly-240Master/domain/log/To_be_disb/applog_logs_%d{yyyy-MM-dd}.log.gz">
+
+            <PatternLayout pattern="${LOG_PATTERN}" />
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <DefaultRolloverStrategy max="50" />
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="ALL">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="File" />
+        </Root>
+    </Loggers>
+</Configuration>
+
